@@ -1738,7 +1738,7 @@
 				transition-delay: 2.3s;
 			}
 
-		@media screen and (max-width: 1680px) {
+		/*@media screen and (max-width: 1680px) {
 
 			#main .thumb {
 				-moz-transition-delay: 2.075s;
@@ -1750,15 +1750,6 @@
 				width: 33.33333%;
 			}
             
-            #main .doublethumb {
-                -moz-transition-delay: 2.075s;
-                -webkit-transition-delay: 2.075s;
-                -ms-transition-delay: 2.075s;
-                transition-delay: 2.075s;
-                height: calc(40vh - 2em);
-                min-height: 20em;
-                width: 66.66666%;
-            }
 
 				#main .thumb:nth-child(1) {
 					-moz-transition-delay: 0.65s;
@@ -1823,68 +1814,7 @@
 					transition-delay: 1.85s;
 				}
                 
-                #main .doublethumb:nth-child(1) {
-                    -moz-transition-delay: 0.65s;
-                    -webkit-transition-delay: 0.65s;
-                    -ms-transition-delay: 0.65s;
-                    transition-delay: 0.65s;
-                }
-                
-                #main .doublethumb:nth-child(2) {
-                    -moz-transition-delay: 0.8s;
-                    -webkit-transition-delay: 0.8s;
-                    -ms-transition-delay: 0.8s;
-                    transition-delay: 0.8s;
-                }
-                
-                #main .doublethumb:nth-child(3) {
-                    -moz-transition-delay: 0.95s;
-                    -webkit-transition-delay: 0.95s;
-                    -ms-transition-delay: 0.95s;
-                    transition-delay: 0.95s;
-                }
-                
-                #main .doublethumb:nth-child(4) {
-                    -moz-transition-delay: 1.1s;
-                    -webkit-transition-delay: 1.1s;
-                    -ms-transition-delay: 1.1s;
-                    transition-delay: 1.1s;
-                }
-                
-                #main .doublethumb:nth-child(5) {
-                    -moz-transition-delay: 1.25s;
-                    -webkit-transition-delay: 1.25s;
-                    -ms-transition-delay: 1.25s;
-                    transition-delay: 1.25s;
-                }
-                
-                #main .doublethumb:nth-child(6) {
-                    -moz-transition-delay: 1.4s;
-                    -webkit-transition-delay: 1.4s;
-                    -ms-transition-delay: 1.4s;
-                    transition-delay: 1.4s;
-                }
-                
-                #main .doublethumb:nth-child(7) {
-                    -moz-transition-delay: 1.55s;
-                    -webkit-transition-delay: 1.55s;
-                    -ms-transition-delay: 1.55s;
-                    transition-delay: 1.55s;
-                }
-                
-                #main .doublethumb:nth-child(8) {
-                    -moz-transition-delay: 1.7s;
-                    -webkit-transition-delay: 1.7s;
-                    -ms-transition-delay: 1.7s;
-                    transition-delay: 1.7s;
-                }
-                
-                #main .doublethumb:nth-child(9) {
-                    -moz-transition-delay: 1.85s;
-                    -webkit-transition-delay: 1.85s;
-                    -ms-transition-delay: 1.85s;
-                    transition-delay: 1.85s;
-                }
+
 
 
 		}
@@ -1901,15 +1831,6 @@
 				width: 50%;
 			}
             
-            #main .doublethumb {
-                -moz-transition-delay: 1.625s;
-                -webkit-transition-delay: 1.625s;
-                -ms-transition-delay: 1.625s;
-                transition-delay: 1.625s;
-                height: calc(40vh - 2em);
-                min-height: 20em;
-                width: 100%;
-            }
 
 				#main .thumb:nth-child(1) {
 					-moz-transition-delay: 0.65s;
@@ -1953,71 +1874,22 @@
 					transition-delay: 1.4s;
 				}
                 
-                #main .doublethumb:nth-child(1) {
-                    -moz-transition-delay: 0.65s;
-                    -webkit-transition-delay: 0.65s;
-                    -ms-transition-delay: 0.65s;
-                    transition-delay: 0.65s;
-                }
-                
-                #main .doublethumb:nth-child(2) {
-                    -moz-transition-delay: 0.8s;
-                    -webkit-transition-delay: 0.8s;
-                    -ms-transition-delay: 0.8s;
-                    transition-delay: 0.8s;
-                }
-                
-                #main .doublethumb:nth-child(3) {
-                    -moz-transition-delay: 0.95s;
-                    -webkit-transition-delay: 0.95s;
-                    -ms-transition-delay: 0.95s;
-                    transition-delay: 0.95s;
-                }
-                
-                #main .doublethumb:nth-child(4) {
-                    -moz-transition-delay: 1.1s;
-                    -webkit-transition-delay: 1.1s;
-                    -ms-transition-delay: 1.1s;
-                    transition-delay: 1.1s;
-                }
-                
-                #main .doublethumb:nth-child(5) {
-                    -moz-transition-delay: 1.25s;
-                    -webkit-transition-delay: 1.25s;
-                    -ms-transition-delay: 1.25s;
-                    transition-delay: 1.25s;
-                }
-                
-                #main .doublethumb:nth-child(6) {
-                    -moz-transition-delay: 1.4s;
-                    -webkit-transition-delay: 1.4s;
-                    -ms-transition-delay: 1.4s;
-                    transition-delay: 1.4s;
-                }
-
+ 
 		}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 980px) { */
+        @media screen and (max-width: 5000px) {
 
 			#main .thumb {
 				-moz-transition-delay: 2.075s;
 				-webkit-transition-delay: 2.075s;
 				-ms-transition-delay: 2.075s;
 				transition-delay: 2.075s;
-				height: calc(28.57143vh - 1.33333em);
+				height: calc(28.57143vh - 1.3333em);
 				min-height: 18em;
 				width: 50%;
 			}
             
-            #main .doublethumb {
-                -moz-transition-delay: 2.075s;
-                -webkit-transition-delay: 2.075s;
-                -ms-transition-delay: 2.075s;
-                transition-delay: 2.075s;
-                height: calc(28.57143vh - 1.33333em);
-                min-height: 18em;
-                width: 100%;
-            }
 
 				#main .thumb:nth-child(1) {
 					-moz-transition-delay: 0.65s;
@@ -2082,69 +1954,6 @@
 					transition-delay: 1.85s;
 				}
                 
-                #main .doublethumb:nth-child(1) {
-                    -moz-transition-delay: 0.65s;
-                    -webkit-transition-delay: 0.65s;
-                    -ms-transition-delay: 0.65s;
-                    transition-delay: 0.65s;
-                }
-                
-                #main .doublethumb:nth-child(2) {
-                    -moz-transition-delay: 0.8s;
-                    -webkit-transition-delay: 0.8s;
-                    -ms-transition-delay: 0.8s;
-                    transition-delay: 0.8s;
-                }
-                
-                #main .doublethumb:nth-child(3) {
-                    -moz-transition-delay: 0.95s;
-                    -webkit-transition-delay: 0.95s;
-                    -ms-transition-delay: 0.95s;
-                    transition-delay: 0.95s;
-                }
-                
-                #main .doublethumb:nth-child(4) {
-                    -moz-transition-delay: 1.1s;
-                    -webkit-transition-delay: 1.1s;
-                    -ms-transition-delay: 1.1s;
-                    transition-delay: 1.1s;
-                }
-                
-                #main .doublethumb:nth-child(5) {
-                    -moz-transition-delay: 1.25s;
-                    -webkit-transition-delay: 1.25s;
-                    -ms-transition-delay: 1.25s;
-                    transition-delay: 1.25s;
-                }
-                
-                #main .doublethumb:nth-child(6) {
-                    -moz-transition-delay: 1.4s;
-                    -webkit-transition-delay: 1.4s;
-                    -ms-transition-delay: 1.4s;
-                    transition-delay: 1.4s;
-                }
-                
-                #main .doublethumb:nth-child(7) {
-                    -moz-transition-delay: 1.55s;
-                    -webkit-transition-delay: 1.55s;
-                    -ms-transition-delay: 1.55s;
-                    transition-delay: 1.55s;
-                }
-                
-                #main .doublethumb:nth-child(8) {
-                    -moz-transition-delay: 1.7s;
-                    -webkit-transition-delay: 1.7s;
-                    -ms-transition-delay: 1.7s;
-                    transition-delay: 1.7s;
-                }
-                
-                #main .doublethumb:nth-child(9) {
-                    -moz-transition-delay: 1.85s;
-                    -webkit-transition-delay: 1.85s;
-                    -ms-transition-delay: 1.85s;
-                    transition-delay: 1.85s;
-                }
-
 
 		}
 
