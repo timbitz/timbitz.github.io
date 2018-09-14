@@ -1,4 +1,4 @@
-track type=bed color=40,45,206 name=PABPC4-human_K562 description="eCLIP PABPC4-human_K562"
+track type=bed color=55,29,36 name=PABPC4-human_K562 description="eCLIP PABPC4-human_K562"
 chr19	38743595	38743614	PABPC4_K562_IDR	1000	-
 chr5	137891139	137891196	PABPC4_K562_IDR	1000	-
 chr17	79674304	79674356	PABPC4_K562_IDR	1000	+

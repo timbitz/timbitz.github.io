@@ -1,4 +1,4 @@
-track type=bed color=50,239,102 name=PABPN1-human_HepG2 description="eCLIP PABPN1-human_HepG2"
+track type=bed color=236,139,185 name=PABPN1-human_HepG2 description="eCLIP PABPN1-human_HepG2"
 chr6	109769949	109770022	PABPN1_HepG2_IDR	1000	-
 chr6	109769932	109769949	PABPN1_HepG2_IDR	1000	-
 chr6	31729635	31729733	PABPN1_HepG2_IDR	1000	+

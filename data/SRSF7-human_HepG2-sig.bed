@@ -1,4 +1,4 @@
-track type=bed color=200,152,88 name=SRSF7-human_HepG2 description="eCLIP SRSF7-human_HepG2"
+track type=bed color=165,47,145 name=SRSF7-human_HepG2 description="eCLIP SRSF7-human_HepG2"
 chr10	133770822	133770960	SRSF7_HepG2_IDR	1000	+
 chr6	31620017	31620148	SRSF7_HepG2_IDR	1000	-
 chr7	158223988	158224057	SRSF7_HepG2_IDR	1000	-

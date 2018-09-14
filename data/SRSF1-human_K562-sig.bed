@@ -1,4 +1,4 @@
-track type=bed color=129,79,20 name=SRSF1-human_K562 description="eCLIP SRSF1-human_K562"
+track type=bed color=13,171,187 name=SRSF1-human_K562 description="eCLIP SRSF1-human_K562"
 chr1	46073702	46073740	SRSF1_K562_IDR	1000	+
 chr1	110581824	110581919	SRSF1_K562_IDR	1000	+
 chr2	38975714	38975788	SRSF1_K562_IDR	1000	-
