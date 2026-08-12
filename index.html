@@ -311,9 +311,17 @@ a{color:inherit}
 .x-arrow--pred{stroke:var(--x-tum-ink);stroke-dasharray:4 3}
 .x-key{cursor:pointer}
 .x-key rect{fill:transparent}
+.xfer__bar{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:1rem;margin:.7rem 0 0;max-width:500px;
+}
 .xfer__read{
   font-family:var(--mono);font-size:.5625rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink-2);margin:.7rem 0 0;min-height:1.3em;
+  text-transform:uppercase;color:var(--ink-2);min-height:1.3em;
+}
+.xfer__note{
+  font-family:var(--mono);font-size:.5625rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);white-space:nowrap;
 }
 .xfer__read b{color:var(--signal);font-weight:500}
 
@@ -654,11 +662,13 @@ a{color:inherit}
         <figure class="xfer">
           <svg id="xfer" viewBox="0 0 560 330" role="img"
                aria-label="Schematic: cell lines and patient tumours occupy one shared transcriptomic space. A model trains on the cell lines, where dependency is measurable, then predicts into the tumours, where it is not."></svg>
-          <p class="xfer__read" id="xferread">hover a population</p>
+          <div class="xfer__bar">
+            <span class="xfer__read" id="xferread">hover a population</span>
+            <span class="xfer__note">schematic</span>
+          </div>
           <figcaption class="fig__cap">
             <b>A harmonized map places cancer cell lines, tumours and normal tissue in
             one space.</b> Models trained on the cell lines are applied across the map.
-            Schematic.
           </figcaption>
         </figure>
       </article>
