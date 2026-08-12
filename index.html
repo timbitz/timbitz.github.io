@@ -1,242 +1,1195 @@
-<!DOCTYPE HTML>
-<!--
-	Story by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Tim Sterne-Weiler (timbitz)</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tim Sterne-Weiler</title>
+<meta name="description" content="Tim Sterne-Weiler, PhD — Senior Principal Scientist at Genentech. Interpretable machine learning and AI over multimodal genomics to find cancer dependencies and therapeutic targets.">
+<meta property="og:title" content="Tim Sterne-Weiler, PhD">
+<meta property="og:description" content="Interpretable machine learning and AI over multimodal genomics to find cancer dependencies and therapeutic targets.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://timbitz.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
 
-	</head>
-	<body>
+<style>
+/* ─────────────────────────────────────────────────────────────
+   Tokens
+   Two fluorescence channels encode the two strands of the work:
+   signal (Cy3 magenta) = AI / cancer dependencies
+   found  (DAPI teal)   = RNA / methods foundation
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --ground:#F4F5F3;
+  --raised:#FFFFFF;
+  --ink:#14171A;
+  --ink-2:#59636B;
+  --ink-3:#8B959B;
+  --noise:#C6CCCF;
+  --rule:#DCE0DE;
+  --signal:#C8005E;
+  --found:#00747F;
+  --found-soft:#00747F14;
 
-		<!-- Wrapper -->
-        <div id="wrapper" class="divided">
+  /* published figures live on paper; dark mode dims the plate */
+  --plate:#FFFFFF;
+  --plate-filter:none;
+  --portrait-filter:grayscale(1);
 
-				<!-- One -->
-					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
-               <div class="content">
-							<h2>Tim Sterne-Weiler, PhD</h2>
-                     <p class="major"><!--[-->Senior Principal Scientist, Computational Biology & Translation<br><em>Genentech</em><!--]--></p>
-                     <p>My research interests lie at the intersection of computational genomics, machine learning and human disease.  I'm currently a Principal
-			     Scientist at <a href="http://www.gene.com">Genentech</a>, studying gene dysregulation in cancer. Formerly a postdoc in the <a href="http://sites.utoronto.ca/intron" target="new">Blencowe lab</a> at the University of Toronto.</p>
-                            <div style="width: 40%; float:left">
-                                <br>
-							<ul class="actions small vertical">
-								<li><a href="#Research" class="button small smooth-scroll-top">Projects <i class="fa fa-flask"></i></a></li>
-                                <li><a href="#Publications" class="button small smooth-scroll-top">Publications <i class="fa fa-file-pdf-o"></i></a></li>
-                                <li><a href="#Education" class="button small smooth-scroll-top">Education <i class="fa fa-graduation-cap"></i></a></li>
-                                <li><a href="https://github.com/timbitz" target="new" class="button small smooth-scroll-top">Code <i class="fa fa-github"></i></a></li>
-							</ul>
-                            <ul class="icons">
-                                <li><a href="https://scholar.google.com/citations?user=-FDwZaQAAAAJ" target="new" class="icon style1 ai-google-scholar smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=sterne-weiler%5Bau%5D" target="new" class="icon style1 ai-pubmed smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="https://twitter.com/_timbitz" target="new" class="icon style1 fa-twitter smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="mailto:tim.sterne.weiler@utoronto.ca" class="icon style1 fa-send"><span class="label"></span></a></li>
-                            </ul>
-                            </div>
-                            <div style="width: 60%; float:right"><img src="images/wordcloud.gif" width=276px height=247px /></div>
-                            
-						</div>
-						<div class="image">
-							<img src="images/billy-huynh-tPf-9_uMIeU-unsplash.jpg" alt="" />
-						</div>
-					</section>
+  --mono:"Martian Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+
+  --gut:clamp(1.25rem,4vw,4.5rem);
+  --maxw:1240px;
+}
+
+/* Dark tokens, defined once and applied two ways:
+   by system preference unless the reader has forced light,
+   and by the explicit toggle. */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0B0D0E; --raised:#131618;
+    --ink:#E9ECEA; --ink-2:#939DA3; --ink-3:#6B757B;
+    --noise:#2B3236; --rule:#212629;
+    --signal:#FF3D9A; --found:#35D2E6; --found-soft:#35D2E618;
+    --plate:#E4E6E3;
+    --plate-filter:brightness(.88) contrast(1.03);
+    --portrait-filter:grayscale(1) brightness(.9);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0B0D0E; --raised:#131618;
+  --ink:#E9ECEA; --ink-2:#939DA3; --ink-3:#6B757B;
+  --noise:#2B3236; --rule:#212629;
+  --signal:#FF3D9A; --found:#35D2E6; --found-soft:#35D2E618;
+  --plate:#E4E6E3;
+  --plate-filter:brightness(.88) contrast(1.03);
+  --portrait-filter:grayscale(1) brightness(.9);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:clamp(1rem,.55vw + .9rem,1.1875rem);
+  line-height:1.62;
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ── Shared primitives ─────────────────────────────────────── */
+.shell{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+
+.tag{
+  font-family:var(--mono);
+  font-size:.625rem;
+  font-weight:400;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+}
+
+.dot{
+  width:.5rem;height:.5rem;border-radius:50%;
+  display:inline-block;flex:none;
+}
+.dot--signal{background:var(--signal)}
+.dot--found{background:var(--found)}
+
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+
+/* ── Masthead ──────────────────────────────────────────────── */
+.masthead{
+  position:sticky;top:0;z-index:40;
+  background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.masthead__in{
+  max-width:var(--maxw);margin-inline:auto;padding:.85rem var(--gut);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.monogram{
+  font-family:var(--mono);font-weight:500;font-size:.75rem;
+  letter-spacing:.1em;text-decoration:none;
+}
+.nav{display:flex;gap:1.5rem;align-items:center;list-style:none;margin:0;padding:0}
+.nav a{
+  font-family:var(--mono);font-size:.6875rem;font-weight:400;
+  letter-spacing:.07em;text-transform:uppercase;
+  text-decoration:none;color:var(--ink-2);
+  padding:.25rem 0;border-bottom:1px solid transparent;
+  transition:color .18s,border-color .18s;
+}
+.nav a:hover,.nav a:focus-visible{color:var(--ink);border-bottom-color:var(--signal)}
+@media (max-width:720px){ .nav--wide{display:none} }
+
+.theme{
+  font-family:var(--mono);font-size:.625rem;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:transparent;
+  border:1px solid var(--rule);border-radius:2px;
+  padding:.3rem .5rem;cursor:pointer;
+  transition:color .18s,border-color .18s;
+}
+.theme:hover{color:var(--ink);border-color:var(--ink-3)}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.hero{padding-block:clamp(3rem,8vw,7rem) clamp(2rem,5vw,4.5rem)}
+.hero__grid{
+  display:grid;gap:clamp(2rem,4vw,4rem);
+  grid-template-columns:minmax(0,1fr);
+  align-items:start;
+}
+/* Nameplate left, statement right — the two halves balance the
+   measure without needing a figure to fill the column. */
+@media (min-width:900px){
+  .hero__grid{grid-template-columns:minmax(0,1fr) minmax(0,.92fr)}
+}
+
+.hero__name{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(2.35rem,5.2vw,3.5rem);
+  line-height:1.06;
+  letter-spacing:-.022em;
+  margin:0 0 1.35rem;
+  text-wrap:balance;
+}
+.hero__name em{
+  font-style:normal;
+  font-family:var(--mono);
+  font-weight:400;
+  font-size:.245em;
+  letter-spacing:.1em;
+  color:var(--ink-3);
+  display:block;
+  margin-top:.85rem;
+}
+
+.hero__role{
+  font-family:var(--mono);
+  font-size:.6875rem;font-weight:400;line-height:1.9;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-2);
+  margin:0 0 1.75rem;
+  padding-left:.9rem;
+  border-left:1px solid var(--rule);
+}
+
+.hero__lede{
+  font-size:clamp(1.15rem,.85vw + 1rem,1.55rem);
+  line-height:1.48;
+  margin:0 0 1.9rem;
+  max-width:40ch;
+}
+.hero__lede strong{font-weight:500;color:var(--ink)}
+.hero__focus{
+  margin:0;max-width:46ch;color:var(--ink-2);
+  padding-top:1.5rem;border-top:1px solid var(--rule);
+}
+/* Lineage: training through to the current post, which carries the accent. */
+.lineage{
+  font-family:var(--mono);font-size:.625rem;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  margin:2.5rem 0 0;padding:1.1rem 0 0;
+  border-top:1px solid var(--rule);
+  list-style:none;line-height:1.6;
+  display:grid;gap:.55rem;
+}
+.lineage li{display:flex;gap:.7rem;align-items:baseline}
+.lineage b{
+  font-weight:400;flex:none;width:5rem;
+  color:var(--ink-3);opacity:.65;
+}
+.lineage li:last-child{color:var(--ink-2)}
+.lineage li:last-child b{color:var(--signal);opacity:1}
+
+.links{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.links a{
+  display:inline-block;
+  font-family:var(--mono);font-size:.6875rem;font-weight:400;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;
+  color:var(--ink-2);
+  padding:.5rem .8rem;
+  border:1px solid var(--rule);
+  border-radius:2px;
+  transition:color .18s,border-color .18s,background .18s;
+}
+.links a:hover,.links a:focus-visible{
+  color:var(--ink);border-color:var(--ink-3);background:var(--raised);
+}
+
+/* ── Hero figure ───────────────────────────────────────────── */
+.fig{margin:0}
+.fig img{
+  /* capped so it never renders above its native 778px, even at 2x DPR */
+  width:100%;max-width:360px;height:auto;
+  background:var(--plate);filter:var(--plate-filter);
+  border:1px solid var(--rule);border-radius:3px;
+  padding:.55rem;
+}
+.fig__cap{
+  font-size:.8125rem;line-height:1.5;color:var(--ink-2);
+  margin:.9rem 0 0;max-width:52ch;
+}
+.fig__cap b{font-weight:500;color:var(--ink)}
+.fig__ref{
+  color:var(--ink-3);text-decoration:none;
+  border-bottom:1px solid var(--rule);white-space:nowrap;
+}
+.fig__ref:hover{color:var(--ink-2);border-bottom-color:var(--ink-3)}
+
+/* ── Section frame ─────────────────────────────────────────── */
+.band{padding-block:clamp(3.25rem,6.5vw,6rem)}
+.band + .band{border-top:1px solid var(--rule)}
+
+.band__head{
+  display:flex;align-items:center;gap:.65rem;
+  margin:0 0 clamp(1.75rem,3vw,2.75rem);
+}
+
+.h2{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:clamp(1.4rem,2.1vw,1.85rem);
+  line-height:1.24;
+  letter-spacing:-.015em;
+  margin:0 0 1.1rem;
+  text-wrap:balance;
+}
+
+/* ── Oncoforest network, redrawn as vector from the published figure ──
+   Module hues are tokens so the graph re-tints for dark mode rather than
+   sitting on a pasted-in light plate. */
+:root{
+  --m-glut:#7B3FA0; --m-ferro:#2C5FA8; --m-ppi:#3F7A38;
+  --m-pent:#D9871B; --m-para:#9E2B23; --m-nfe:#C03C96;
+  --m-haze:#A9C489; --haze-op:.34;
+  --node-stroke:#3A3A3A; --node-lift:none;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --m-glut:#BF8CE8; --m-ferro:#74ACF2; --m-ppi:#74C96A;
+    --m-pent:#F2AE44; --m-para:#EA7B70; --m-nfe:#F286CE;
+    --m-haze:#4F6B44; --haze-op:.24;
+    --node-stroke:#C9CFCB; --node-lift:brightness(1.12) saturate(.95);
+  }
+}
+:root[data-theme="dark"]{
+  --m-glut:#BF8CE8; --m-ferro:#74ACF2; --m-ppi:#74C96A;
+  --m-pent:#F2AE44; --m-para:#EA7B70; --m-nfe:#F286CE;
+  --m-haze:#4F6B44; --haze-op:.24;
+  --node-stroke:#C9CFCB; --node-lift:brightness(1.12) saturate(.95);
+}
+
+/* ── Transfer schematic: models inside the patient space ── */
+.xfer{margin:1.9rem 0 0}
+.xfer svg{width:100%;max-width:500px;height:auto;display:block;background:none}
+.x-lab{font-family:var(--mono);font-size:10px;letter-spacing:.09em;
+  text-transform:uppercase;fill:var(--ink-3);pointer-events:none}
+.x-lab--ink{fill:var(--ink-2)}
+/* tumour grey needs its own token: --noise is tuned for hairlines and
+   goes invisible as a dot on the dark ground */
+:root{ --x-tum:#B4BBC0; --x-tum-ink:#98A1A7 }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --x-tum:#4E585E; --x-tum-ink:#7C868C }
+}
+:root[data-theme="dark"]{ --x-tum:#4E585E; --x-tum-ink:#7C868C }
+.x-tum{fill:var(--x-tum);transition:opacity .16s}
+.x-cell{fill:var(--signal);transition:opacity .16s}
+.x-box{fill:var(--raised);stroke:var(--ink-3);stroke-width:1}
+.x-arrow{fill:none;stroke-width:1.4}
+.x-arrow--train{stroke:var(--signal)}
+.x-arrow--pred{stroke:var(--x-tum-ink);stroke-dasharray:4 3}
+.x-key{cursor:pointer}
+.x-key rect{fill:transparent}
+.xfer__read{
+  font-family:var(--mono);font-size:.5625rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-2);margin:.7rem 0 0;min-height:1.3em;
+}
+.xfer__read b{color:var(--signal);font-weight:500}
+
+.ofig{margin:1.9rem 0 0}
+/* sized to sit at the same visual weight as the transfer schematic opposite */
+.ofig svg{width:100%;max-width:400px;height:auto;display:block;background:none}
+.of-haze{fill:none;stroke:var(--m-haze);stroke-width:.85;opacity:var(--haze-op);
+  transition:opacity .16s}
+.of-edge{fill:none;stroke-linecap:round;transition:opacity .16s}
+.of-node{stroke:var(--node-stroke);stroke-width:1.4;cursor:pointer;
+  filter:var(--node-lift);transition:opacity .16s}
+.of-node:hover{stroke-width:2.8}
+.of-lab{cursor:pointer;transition:opacity .16s}
+.of-lab text{font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:19px}
+.of-lab text.sub{font-size:15px;font-style:italic}
+.of-ax text{font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;
+  fill:var(--ink-2)}
+.m-glut{stroke:var(--m-glut)}  text.m-glut{fill:var(--m-glut);stroke:none}
+.m-ferro{stroke:var(--m-ferro)} text.m-ferro{fill:var(--m-ferro);stroke:none}
+.m-ppi{stroke:var(--m-ppi)}    text.m-ppi{fill:var(--m-ppi);stroke:none}
+.m-pent{stroke:var(--m-pent)}  text.m-pent{fill:var(--m-pent);stroke:none}
+.m-para{stroke:var(--m-para)}  text.m-para{fill:var(--m-para);stroke:none}
+.m-nfe{stroke:var(--m-nfe)}    text.m-nfe{fill:var(--m-nfe);stroke:none}
+.ofig__read{
+  font-family:var(--mono);font-size:.5625rem;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);
+  margin:.75rem 0 0;min-height:1.3em;max-width:520px;
+}
+.ofig__read b{color:var(--signal);font-weight:500}
+
+/* ── Work: the two AI spotlights ───────────────────────────── */
+.work{
+  display:grid;gap:clamp(2rem,4.5vw,4rem);
+  grid-template-columns:minmax(0,1fr);
+}
+@media (min-width:900px){
+  .work{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.work p{margin:0 0 1.05rem;max-width:52ch}
+.work p:last-child{margin-bottom:0}
+
+/* ── Methods: compressed foundation tiles ──────────────────── */
+.found-note{
+  max-width:56ch;margin:0 0 clamp(1.75rem,3vw,2.5rem);
+  color:var(--ink-2);
+}
+.tiles{
+  display:grid;gap:1px;
+  background:var(--rule);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  overflow:hidden;
+  grid-template-columns:minmax(0,1fr);
+}
+@media (min-width:640px){ .tiles{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (min-width:1040px){ .tiles{grid-template-columns:repeat(4,minmax(0,1fr))} }
+
+.tile{
+  background:var(--raised);
+  padding:1.15rem 1.15rem 1.25rem;
+  display:flex;flex-direction:column;gap:.7rem;
+}
+.tile__fig{
+  aspect-ratio:16/9;overflow:hidden;background:var(--plate);
+  border:1px solid var(--rule);
+}
+.tile__fig img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  filter:var(--plate-filter);
+}
+.tile__name{
+  font-family:var(--mono);font-size:.75rem;font-weight:500;
+  letter-spacing:0;margin:0;
+  display:flex;align-items:center;gap:.5rem;
+}
+.tile__say{font-size:.9375rem;line-height:1.5;margin:0;color:var(--ink-2);flex:1}
+.tile__foot{
+  display:flex;flex-wrap:wrap;gap:.4rem .9rem;align-items:baseline;
+  font-family:var(--mono);font-size:.5625rem;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.tile__foot a{color:var(--found);text-decoration:none;border-bottom:1px solid transparent}
+.tile__foot a:hover,.tile__foot a:focus-visible{border-bottom-color:currentColor}
+
+/* ── Publications ──────────────────────────────────────────── */
+.pubbar{
+  display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;
+  margin:0 0 1.75rem;
+}
+.filt{
+  font-family:var(--mono);font-size:.625rem;font-weight:400;
+  letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-2);background:transparent;
+  border:1px solid var(--rule);border-radius:2px;
+  padding:.45rem .7rem;cursor:pointer;
+  display:inline-flex;align-items:center;gap:.45rem;
+  transition:color .18s,border-color .18s,background .18s;
+}
+.filt:hover{color:var(--ink);border-color:var(--ink-3)}
+.filt[aria-pressed="true"]{color:var(--ground);background:var(--ink);border-color:var(--ink)}
+.filt[aria-pressed="true"] .dot{box-shadow:0 0 0 1px var(--ground)}
+
+.pubs{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.pub{
+  display:grid;gap:.2rem 1.1rem;
+  grid-template-columns:auto 1fr;
+  padding:1.05rem 0;
+  border-bottom:1px solid var(--rule);
+}
+@media (min-width:780px){
+  .pub{grid-template-columns:4.2rem auto 1fr;align-items:baseline}
+}
+.pub[hidden]{display:none}
+
+.pub__yr{
+  font-family:var(--mono);font-size:.6875rem;font-weight:400;
+  letter-spacing:.02em;color:var(--ink-3);
+  font-variant-numeric:tabular-nums;
+  grid-row:1;
+}
+.pub__ch{display:flex;gap:.3rem;align-items:center;grid-row:1}
+.pub__body{grid-column:1/-1}
+@media (min-width:780px){ .pub__body{grid-column:3} }
+
+.pub__t{
+  display:block;font-size:1.0625rem;line-height:1.4;
+  color:var(--ink);text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .18s;
+}
+.pub__t:hover,.pub__t:focus-visible{border-bottom-color:var(--signal)}
+.pub__au{font-size:.875rem;line-height:1.55;color:var(--ink-3);margin:.28rem 0 0}
+.pub__au b{color:var(--ink-2);font-weight:500}
+.pub__vn{
+  font-family:var(--mono);font-size:.5625rem;font-weight:400;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);
+  margin:.42rem 0 0;display:flex;flex-wrap:wrap;gap:.35rem .8rem;
+}
+.role{color:var(--signal);font-weight:500}
+.kind{
+  color:var(--ink-3);border:1px solid var(--rule);
+  padding:.1rem .35rem;border-radius:2px;
+}
+
+/* ── Bio / close ───────────────────────────────────────────── */
+.close{
+  display:grid;gap:clamp(2rem,4vw,3.5rem);
+  grid-template-columns:minmax(0,1fr);
+}
+@media (min-width:860px){
+  .close{grid-template-columns:14rem minmax(0,1fr)}
+}
+.portrait{
+  /* height:auto is load-bearing — the img carries width/height attributes
+     for layout stability, and without it the attribute height wins */
+  width:11rem;height:auto;aspect-ratio:1;object-fit:cover;
+  border-radius:50%;filter:var(--portrait-filter);
+  border:1px solid var(--rule);
+}
+.cv{display:grid;gap:2rem;grid-template-columns:minmax(0,1fr)}
+@media (min-width:620px){ .cv{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.cv h3{
+  font-family:var(--mono);font-size:.625rem;font-weight:400;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+  margin:0 0 .9rem;padding-bottom:.6rem;border-bottom:1px solid var(--rule);
+}
+.cv ul{list-style:none;margin:0;padding:0;display:grid;gap:.65rem}
+.cv li{font-size:.9375rem;line-height:1.45}
+.cv .yr{
+  font-family:var(--mono);font-size:.625rem;font-weight:500;
+  color:var(--ink-3);display:block;letter-spacing:.06em;
+}
+.mentor{
+  grid-column:1/-1;margin:0;padding:1.4rem 0 0;border-top:1px solid var(--rule);
+  max-width:62ch;color:var(--ink-2);font-size:1rem;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.foot{border-top:1px solid var(--rule);padding-block:2.25rem 3rem}
+.foot__in{
+  display:flex;flex-wrap:wrap;gap:1rem 2rem;
+  justify-content:space-between;align-items:baseline;
+}
+.foot p{
+  font-family:var(--mono);font-size:.5625rem;font-weight:300;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  margin:0;line-height:2;
+}
+.foot a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule)}
+.foot a:hover{color:var(--ink);border-bottom-color:var(--ink-3)}
+
+/* ── Quality floor ─────────────────────────────────────────── */
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:1px}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__in">
+    <a class="monogram" href="#top">TSW</a>
+    <nav aria-label="Sections">
+      <ul class="nav">
+        <li class="nav--wide"><a href="#work">Research</a></li>
+        <li class="nav--wide"><a href="#methods">Software</a></li>
+        <li><a href="#papers">Papers</a></li>
+        <li><a href="https://github.com/timbitz">Code</a></li>
+        <li><a href="#about">About</a></li>
+        <li><button class="theme" id="theme" type="button">Theme: system</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+/* Theme follows the operating system unless the reader overrides it.
+   Runs before paint so an override doesn't flash the wrong palette. */
+(() => {
+  const CYCLE = ['system','light','dark'];
+  const root = document.documentElement;
+  let mode = localStorage.getItem('tsw-theme') || 'system';
+
+  const apply = () => {
+    if (mode === 'system') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', mode);
+    const btn = document.getElementById('theme');
+    if (btn) btn.textContent = 'Theme: ' + mode;
+  };
+  apply();
+
+  addEventListener('DOMContentLoaded', () => {
+    apply();
+    document.getElementById('theme').addEventListener('click', () => {
+      mode = CYCLE[(CYCLE.indexOf(mode) + 1) % CYCLE.length];
+      localStorage.setItem('tsw-theme', mode);
+      apply();
+    });
+  });
+})();
+</script>
+
+<main id="top">
+
+  <!-- ═══ Hero ═══════════════════════════════════════════════ -->
+  <section class="hero shell">
+    <div class="hero__grid">
+      <div>
+        <h1 class="hero__name">
+          Tim Sterne-Weiler
+          <em>PhD</em>
+        </h1>
+
+        <p class="hero__role">
+          Senior Principal Scientist<br>
+          Computational Biology &amp; Translation<br>
+          Discovery Oncology · Genentech
+        </p>
+
+        <ul class="links">
+          <li><a href="#work">Research</a></li>
+          <li><a href="#papers">Papers</a></li>
+          <li><a href="https://github.com/timbitz">GitHub</a></li>
+          <li><a href="https://scholar.google.com/citations?user=-FDwZaQAAAAJ">Scholar</a></li>
+          <li><a href="https://www.gene.com/scientists/our-scientists/tim-sterne-weiler">Genentech</a></li>
+        </ul>
+
+        <ul class="lineage">
+          <li><b>PhD</b> Sanford Lab — UCSC Genomics</li>
+          <li><b>Postdoc</b> Blencowe Lab — UToronto</li>
+          <li><b>Now</b> Cancer Dependencies — Genentech</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="hero__lede">
+          I lead an interdisciplinary <strong>Cancer Dependencies Team</strong> focused on
+          identifying cancer vulnerabilities and biomarkers for target discovery. We develop and apply
+          interpretable machine learning and AI architectures to multimodal genomics data.
+        </p>
+
+        <p class="hero__focus">
+          My team develops and applies computational methods to study cancer biology
+          and identify new therapeutic targets, spanning AI models and single-cell
+          transcriptomics. By integrating functional and clinical genomics data, we
+          investigate the genetic alterations and perturbations that drive cancer cell
+          states and vulnerabilities. We also engage in target assessment and
+          early-pipeline projects within Discovery Oncology.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ The AI work ════════════════════════════════════════ -->
+  <section class="band shell" id="work">
+    <div class="band__head">
+      <span class="dot dot--signal"></span>
+      <span class="tag">Current research</span>
+    </div>
+
+    <div class="work">
+      <article>
+        <h2 class="h2">Oncoforest — interpretable machine learning for cancer dependencies</h2>
+        <p>
+          <strong>Oncoforest</strong> is a set of machine learning tools for enhanced
+          interpretability, suitable for discovery and assessment of cancer
+          vulnerabilities &mdash; a toolkit designed for biologically interpretable
+          prediction of viability readouts and their association with molecular context.
+        </p>
+
+        <figure class="ofig">
+          <svg id="ofsvg" viewBox="0 0 778 686" role="img"
+               aria-label="Oncoforest feature-attribution network. Gene nodes cluster into six context modules — glutathione metabolism, pentose-glucuronate interconversion, ferroptosis, protein-protein interactions, paralogs and the NFE2L2 enhancer region — arranged from gene loss- to gain-of-function."></svg>
+          <p class="ofig__read" id="ofread">hover a node, or a module label</p>
+          <figcaption class="fig__cap">
+            <b>Oncoforest attributes gene dependency to molecular context.</b>
+            Impactful features group into modules &mdash; KEGG pathway, paralog,
+            protein&ndash;protein interaction and cytoband &mdash; arranged from gene
+            loss- to gain-of-function.
+            <a class="fig__ref" href="https://aacrjournals.org/clincancerres/article/31/13_Supplement/A011/763246">Mondo et al. 2025</a>
+          </figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h2 class="h2">Translational atlas of cancer dependencies</h2>
+        <p>
+          Interpretable models trained in cell lines can be applied to harmonized
+          multi-omic maps of tumours and normal tissue. This directly enables forward
+          and reverse translation.
+        </p>
+        <p>
+          Predictions identify known tissue and cell-type sensitivities from
+          therapeutic intervention, and stratify patient outcomes.
+        </p>
+
+        <figure class="xfer">
+          <svg id="xfer" viewBox="0 0 560 330" role="img"
+               aria-label="Schematic: cell lines and patient tumours occupy one shared transcriptomic space. A model trains on the cell lines, where dependency is measurable, then predicts into the tumours, where it is not."></svg>
+          <p class="xfer__read" id="xferread">hover a population</p>
+          <figcaption class="fig__cap">
+            <b>A harmonized map places cancer cell lines, tumours and normal tissue in
+            one space.</b> Models trained on the cell lines are applied across the map.
+            Schematic.
+          </figcaption>
+        </figure>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══ Methods foundation (compressed) ════════════════════ -->
+  <section class="band shell" id="methods">
+    <div class="band__head">
+      <span class="dot dot--found"></span>
+      <span class="tag">Methods foundation</span>
+    </div>
+
+    <p class="found-note">
+      Open-source methods developed for RNA and isoform biology, covering transcript
+      discovery and quantification, alternative splicing, and RNA duplex structure.
+      Several remain in active use.
+    </p>
+
+    <div class="tiles">
+      <article class="tile">
+        <div class="tile__fig"><img src="images/Kabza_NComms_2024_Figure_1_wide.gif" alt="" loading="lazy"></div>
+        <h3 class="tile__name">Isosceles</h3>
+        <p class="tile__say">Transcript discovery and quantification from long reads, at single-cell, pseudo-bulk and bulk resolution.</p>
+        <p class="tile__foot">
+          <a href="https://www.nature.com/articles/s41467-024-51584-3">Nat Commun 2024</a>
+        </p>
+      </article>
+
+      <article class="tile">
+        <div class="tile__fig"><img src="images/Whippet-Fig1.gif" alt="" loading="lazy"></div>
+        <h3 class="tile__name">Whippet.jl</h3>
+        <p class="tile__say">Event-level quantification of alternative splicing from RNA-seq.</p>
+        <p class="tile__foot">
+          <a href="https://doi.org/10.1016/j.molcel.2018.08.018">Mol Cell 2018</a>
+          <a href="https://github.com/timbitz/Whippet.jl">GitHub</a>
+        </p>
+      </article>
+
+      <article class="tile">
+        <div class="tile__fig"><img src="images/eLIGR-mini.gif" alt="" loading="lazy"></div>
+        <h3 class="tile__name">LIGR-seq</h3>
+        <p class="tile__say">Transcriptome-wide mapping of RNA:RNA interactions in vivo.</p>
+        <p class="tile__foot">
+          <a href="https://doi.org/10.1016/j.molcel.2016.04.030">Mol Cell 2016</a>
+        </p>
+      </article>
+
+      <article class="tile">
+        <div class="tile__fig"><img src="images/SuffixArrays-Square.gif" alt="" loading="lazy"></div>
+        <h3 class="tile__name">EvoDuplexes.jl</h3>
+        <p class="tile__say">Folding of local and long-range RNA duplexes with phylogenetic analysis.</p>
+        <p class="tile__foot">
+          <a href="https://github.com/timbitz/EvoDuplexes.jl">GitHub</a>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ═══ Publications ═══════════════════════════════════════ -->
+  <section class="band shell" id="papers">
+    <div class="band__head">
+      <span class="dot dot--signal"></span><span class="dot dot--found"></span>
+      <span class="tag">Publications</span>
+    </div>
+
+    <div class="pubbar" role="group" aria-label="Filter publications">
+      <button class="filt" data-f="lead" aria-pressed="true">First / senior / corresponding</button>
+      <button class="filt" data-f="ai" aria-pressed="false"><span class="dot dot--signal"></span> Cancer &amp; ML</button>
+      <button class="filt" data-f="rna" aria-pressed="false"><span class="dot dot--found"></span> RNA &amp; methods</button>
+      <button class="filt" data-f="all" aria-pressed="false">All <span id="n-all"></span></button>
+    </div>
+
+    <ul class="pubs" id="pubs"></ul>
+  </section>
+
+  <!-- ═══ About ══════════════════════════════════════════════ -->
+  <section class="band shell" id="about">
+    <div class="band__head">
+      <span class="tag">About</span>
+    </div>
+
+    <div class="close">
+      <div>
+        <img class="portrait" src="images/tim-portrait.jpg" width="640" height="640"
+             loading="lazy" alt="Tim Sterne-Weiler">
+      </div>
+
+      <div class="cv">
+        <div>
+          <h3>Education</h3>
+          <ul>
+            <li>Postdoctoral Fellow — Donnelly Centre, University of Toronto<span class="yr">2018 · Blencowe Lab</span></li>
+            <li>PhD, Bioinformatics — UC Santa Cruz<span class="yr">2014 · Sanford Lab</span></li>
+            <li>MS, Bioinformatics — UC Santa Cruz<span class="yr">2011</span></li>
+            <li>BS, Bioinformatics with Honors — UC Santa Cruz<span class="yr">2007 · Baskin School of Engineering</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Awards</h3>
+          <ul>
+            <li>CIHR Postdoctoral Fellowship<span class="yr">2015</span></li>
+            <li>Charles H. Best Postdoctoral Fellowship<span class="yr">2014</span></li>
+          </ul>
+          <h3 style="margin-top:2rem">Contact</h3>
+          <ul>
+            <li><a href="mailto:tsternew@gmail.com">tsternew@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <p class="mentor">
+          <b>Postdoctoral mentoring.</b> A postdoctoral fellowship is an ideal period to
+          develop scientific independence in hypothesis-driven research. It demands
+          creativity to formulate new hypotheses, rigorous design of models and
+          experiments, and a strategic vision to contextualize work within the broader
+          literature. As a mentor, I create an environment with space for independent
+          growth while providing the guidance and support necessary for the success and
+          career development of a postdoctoral fellow.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot__in">
+    <p>&copy; Tim Sterne-Weiler</p>
+    <p>
+      <a href="https://github.com/timbitz">GitHub</a> ·
+      <a href="https://scholar.google.com/citations?user=-FDwZaQAAAAJ">Scholar</a> ·
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=sterne-weiler%5Bau%5D">PubMed</a> ·
+      <a href="https://www.gene.com/scientists/our-scientists/tim-sterne-weiler">Genentech</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+const OF={"w":778,"h":743,"c":{"glut":"#7e3fa0","ferro":"#3c60aa","ppi":"#427a38","pent":"#e99828","para":"#962e28","nfe":"#cb3e96"},"l":{"glut":"Glutathione metabolism (KEGG)","ferro":"Ferroptosis (KEGG)","ppi":"Protein\u2013protein interactions (StringDB)","pent":"Pentose\u2013glucuronate interconversion (KEGG)","para":"Paralogs","nfe":"NFE2L2 enhancer region (cytoband)"},"n":[[538,209,11.5,"#fef8ea","pent",5],[522,498,11.5,"#fbdfca","",0],[518,101,11.5,"#f8e0d4","",0],[515,325,12.0,"#f7e0d0","para",6],[488,217,11.5,"#fcf4e9","pent",4],[478,17,11.5,"#f7f2ec","",0],[457,283,11.0,"#822216","para",6],[447,367,11.0,"#d84b2f","para",7],[422,291,10.0,"#471514","para",8],[410,442,11.5,"#da3522","para",2],[401,255,11.5,"#6c1913","para",5],[400,135,11.0,"#d63620","pent",4],[371,331,11.0,"#e27753","",0],[349,463,11.5,"#f7e6d4","para",3],[313,303,11.5,"#bf292b","glut",4],[308,260,11.0,"#efba9a","glut",6],[307,214,11.5,"#f2c6ad","glut",2],[306,488,11.0,"#edb697","para",2],[301,120,11.5,"#f4c6ac","",0],[280,33,11.0,"#da332d","",0],[265,160,11.5,"#ecc8b0","glut",7],[253,444,11.0,"#dd724e","",0],[249,268,11.5,"#ebac89","glut",10],[224,238,11.5,"#dc8059","glut",9],[196,137,11.0,"#f3cbb1","",0],[193,393,11.0,"#f1bd98","",0],[163,205,11.5,"#e8b28e","",0],[150,328,11.5,"#eb8e6c","ferro",4],[132,276,11.5,"#ecbaa1","ferro",5],[128,50,11.0,"#d35233","",0],[104,228,11.0,"#fae8dc","ferro",5],[83,314,11.0,"#eca885","",0],[81,154,11.5,"#faecdf","",0],[538,49,11.0,"#fcede6","",0],[474,184,11.5,"#fcf0e4","pent",4],[358,75,11.5,"#fcebe4","",0],[309,374,11.0,"#cc4b23","para",1],[129,407,11.5,"#db3829","",0],[238,178,10.5,"#cf2d28","glut",2],[525,178,11.5,"#fcefe6","pent",5],[248,342,11.0,"#df301f","glut",4]],"e":[[0,4,"pent",0.34],[0,11,"pent",-0.26],[0,34,"pent",0.02],[0,39,"pent",0.14],[0,39,"para",-0.06],[3,6,"para",0.16],[3,7,"para",0.04],[3,7,"nfe",0.26],[3,8,"para",0.34],[3,8,"nfe",0.02],[3,10,"para",0.12],[4,11,"pent",0.06],[4,34,"pent",0.12],[4,39,"pent",0.2],[6,7,"para",0.0],[6,7,"nfe",0.24],[6,8,"ppi",-0.12],[6,8,"para",0.22],[6,10,"para",0.18],[7,8,"para",-0.02],[7,8,"nfe",-0.22],[7,10,"para",0.06],[8,10,"para",0.34],[8,10,"nfe",0.34],[9,13,"para",0.22],[9,17,"para",0.22],[11,34,"pent",0.24],[11,39,"pent",0.04],[13,17,"para",0.26],[13,36,"para",0.0],[14,15,"glut",-0.06],[14,20,"glut",-0.04],[14,22,"glut",-0.16],[14,40,"glut",-0.14],[15,16,"glut",-0.04],[15,20,"glut",-0.1],[15,22,"glut",0.06],[15,23,"glut",0.24],[15,40,"glut",0.28],[16,20,"glut",0.08],[20,22,"glut",0.0],[20,23,"glut",0.02],[20,38,"glut",-0.02],[20,38,"para",-0.02],[22,23,"glut",0.3],[22,23,"ppi",-0.12],[22,23,"para",-0.1],[22,27,"ferro",0.16],[22,28,"ferro",0.2],[22,30,"ferro",-0.14],[22,40,"glut",0.08],[23,27,"ferro",0.22],[23,28,"ferro",0.22],[23,30,"ferro",-0.12],[23,40,"glut",0.04],[27,28,"ferro",0.34],[27,30,"ferro",-0.16],[28,30,"ferro",-0.08],[28,30,"ppi",0.2],[34,39,"pent",0.16]]};
+(() => {
+  const svg=document.getElementById('ofsvg'), out=document.getElementById('ofread');
+  if(!svg) return;
+  const NS='http://www.w3.org/2000/svg';
+  const el=(t,a={})=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+  // the loss/gain axis is supporting furniture — scaled back from the graph,
+  // pivoting on its own top-centre so it stays aligned under the network
+  const gHaze=el('g'), gEdge=el('g'), gNode=el('g'), gLab=el('g'),
+        gAx=el('g',{class:'of-ax',
+          transform:'translate(347.5 536) scale(.74) translate(-347.5 -536)'});
+  [gHaze,gEdge,gNode,gLab,gAx].forEach(g=>svg.appendChild(g));
+
+  const path=(a,b,bulge)=>{
+    const dx=b[0]-a[0], dy=b[1]-a[1], L=Math.hypot(dx,dy);
+    const cx=(a[0]+b[0])/2 - dy/L*bulge*L, cy=(a[1]+b[1])/2 + dx/L*bulge*L;
+    return `M${a[0]} ${a[1]} Q ${cx} ${cy} ${b[0]} ${b[1]}`;
+  };
+
+  // every node linked to every other, faint, beneath the module edges —
+  // a deterministic bulge keeps it organic without randomness per reload
+  const hazeEls=[];
+  for(let i=0;i<OF.n.length;i++){
+    for(let j=i+1;j<OF.n.length;j++){
+      const b=(((i*31+j*17)%13)-6)/70;
+      const p=el('path',{d:path(OF.n[i],OF.n[j],b),class:'of-haze'});
+      gHaze.appendChild(p); hazeEls.push(p);
+    }
+  }
+
+  const edgeEls=[], nodeEls=[];
+  OF.e.forEach(([s,t,m,b])=>{
+    const p=el('path',{d:path(OF.n[s],OF.n[t],b),'stroke-width':3.4,
+      opacity:.95,class:'of-edge m-'+m});
+    p.dataset.mod=m; p.dataset.s=s; p.dataset.t=t;
+    gEdge.appendChild(p); edgeEls.push(p);
+  });
+
+  OF.n.forEach((n,i)=>{
+    const c=el('circle',{cx:n[0],cy:n[1],r:n[2],fill:n[3],class:'of-node'});
+    c.dataset.i=i;
+    c.addEventListener('pointerenter',()=>focusNode(i));
+    c.addEventListener('pointerleave',clear);
+    gNode.appendChild(c); nodeEls.push(c);
+  });
+
+  const LABS=[
+    ['glut', 88, 96,'start',['Glutathione Metabolism','(KEGG)']],
+    ['pent',553, 92,'start',['Pentose -','Glucuronate','interconversion','(KEGG)']],
+    ['ferro',16,372,'start',['Ferroptosis','(KEGG)']],
+    ['ppi', 492,268,'start',['Protein-','Protein','interactions','(StringDB - Experimental)']],
+    ['para',278,408,'start',['Paralogs']],
+    ['nfe', 420,408,'start',['NFE2L2 enhancer','region','(cytoband)']],
+  ];
+  const labEls={};
+  LABS.forEach(([m,x,y,anc,lines])=>{
+    const g=el('g',{class:'of-lab',tabindex:'0',role:'button','aria-label':'Highlight '+OF.l[m]});
+    lines.forEach((s,k)=>{
+      const isSub = s.startsWith('(');
+      const t=el('text',{x,y:y+k*23,'text-anchor':anc,
+        class:'m-'+m+(isSub?' sub':'')});
+      t.textContent=s; g.appendChild(t);
+    });
+    g.addEventListener('pointerenter',()=>focusMod(m));
+    g.addEventListener('pointerleave',clear);
+    g.addEventListener('focus',()=>focusMod(m));
+    g.addEventListener('blur',clear);
+    gLab.appendChild(g); labEls[m]=g;
+    // a transparent hit area, so the gaps between text lines stay hoverable
+    const bb=g.getBBox();
+    const hit=el('rect',{x:bb.x-6,y:bb.y-6,width:bb.width+12,height:bb.height+12,
+      fill:'transparent'});
+    g.insertBefore(hit,g.firstChild);
+  });
+
+  // loss-to-gain axis
+  const t1=el('text',{x:345,y:551,'text-anchor':'middle'}); t1.textContent='Impactful Features';
+  gAx.appendChild(t1);
+  gAx.appendChild(el('path',{d:'M275 575 L 200 575 M210 569 L 200 575 L 210 581',
+    stroke:'currentColor',fill:'none','stroke-width':3,opacity:.55}));
+  gAx.appendChild(el('path',{d:'M415 575 L 490 575 M480 569 L 490 575 L 480 581',
+    stroke:'currentColor',fill:'none','stroke-width':3,opacity:.55}));
+  const defs=el('defs');
+  const grad=(id,a,b)=>{const g=el('linearGradient',{id,x1:'0',x2:'1'});
+    g.appendChild(el('stop',{offset:'0','stop-color':a}));
+    g.appendChild(el('stop',{offset:'1','stop-color':b}));defs.appendChild(g);};
+  grad('ofLof','#3B6FB6','#CFDCEE'); grad('ofGof','#F0D2CE','#C2352C');
+  svg.insertBefore(defs,svg.firstChild);
+  gAx.appendChild(el('path',{d:'M95 596 L 95 655 L 335 632 Z',fill:'url(#ofLof)'}));
+  gAx.appendChild(el('path',{d:'M360 632 L 600 596 L 600 655 Z',fill:'url(#ofGof)'}));
+  [['Gene Loss of','Function',205,'#2C5FA8'],['Gene Gain of','Function',480,'#C2352C']]
+    .forEach(([l1,l2,x,col])=>{
+      [l1,l2].forEach((s,k)=>{
+        const t=el('text',{x,y:692+k*26,'text-anchor':'middle',fill:col});
+        t.textContent=s; gAx.appendChild(t);
+      });
+    });
+
+  const dim=(pred)=>{
+    edgeEls.forEach(p=>p.setAttribute('opacity', pred.edge(p)?0.95:0.07));
+    nodeEls.forEach(c=>c.setAttribute('opacity', pred.node(+c.dataset.i)?1:0.16));
+    Object.entries(labEls).forEach(([m,g])=>g.setAttribute('opacity', pred.lab(m)?1:0.18));
+    gHaze.setAttribute('opacity', 0.25);
+  };
+  function focusMod(m){
+    dim({edge:p=>p.dataset.mod===m, node:i=>OF.e.some(([s,t,mm])=>mm===m&&(s===i||t===i)),
+         lab:x=>x===m});
+    const k=OF.e.filter(e=>e[2]===m).length;
+    out.innerHTML=`<b>${OF.l[m]}</b> &nbsp;·&nbsp; ${k} edges`;
+  }
+  function focusNode(i){
+    const nb=new Set([i]);
+    OF.e.forEach(([s,t])=>{ if(s===i)nb.add(t); if(t===i)nb.add(s); });
+    const mods=new Set(OF.e.filter(([s,t])=>s===i||t===i).map(e=>e[2]));
+    dim({edge:p=>+p.dataset.s===i||+p.dataset.t===i, node:j=>nb.has(j),
+         lab:m=>mods.has(m)});
+    const names=[...mods].map(m=>OF.l[m]).join(', ')||'no strong links';
+    out.innerHTML=`node ${i} &nbsp;·&nbsp; <b>${nb.size-1}</b> links &nbsp;·&nbsp; ${names}`;
+  }
+  function clear(){
+    edgeEls.forEach(p=>p.setAttribute('opacity',.95));
+    nodeEls.forEach(c=>c.setAttribute('opacity',1));
+    Object.values(labEls).forEach(g=>g.setAttribute('opacity',1));
+    gHaze.setAttribute('opacity',1);
+    out.textContent='hover a node, or a module label';
+  }
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   Transfer schematic.
+
+   Cell lines occupy a subset of the space patient tumours span.
+   Dependency is measurable in the models and only inferable in the
+   tumours, so the model trains on one population and predicts into
+   the other. Positions are illustrative, not data.
+   ══════════════════════════════════════════════════════════════ */
+(() => {
+  const svg=document.getElementById('xfer'), out=document.getElementById('xferread');
+  if(!svg) return;
+  const NS='http://www.w3.org/2000/svg';
+  const el=(t,a={})=>{const n=document.createElementNS(NS,t);for(const k in a)n.setAttribute(k,a[k]);return n;};
+  const rnd=(s=>()=>{s|=0;s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);
+    t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;})(0x7A11);
+
+  const t1=el('text',{x:150,y:22,'text-anchor':'middle',class:'x-lab x-lab--ink'});
+  t1.textContent='Harmonized multi-omic map';
+  svg.appendChild(t1);
+
+  const gT=el('g'), gC=el('g');
+  svg.appendChild(gT); svg.appendChild(gC);
+
+  // lineage lobes, the way tissues separate on a UMAP — each with its own
+  // spread and tilt so the field doesn't read as one uniform disc.
+  //        cx   cy   rx  ry  rot   nTum  nCell
+  const LOBES=[
+    [ 72,  96, 30, 22, -0.4, 22,  0],
+    [138,  58, 26, 19,  0.5, 18,  5],
+    [206, 100, 34, 24, -0.2, 26,  8],
+    [ 96, 178, 30, 26,  0.3, 24,  7],
+    [176, 196, 32, 21, -0.5, 22,  6],
+    [242, 168, 20, 16,  0.2, 12,  4],
+    [ 56, 232, 19, 14,  0.4, 10,  0],
+    [252,  62, 16, 13, -0.3,  9,  3],
+  ];
+  const gauss=()=>{ let u=0,v=0; while(!u)u=rnd(); while(!v)v=rnd();
+    return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+
+  const place=(cx,cy,rx,ry,rot,n,spread)=>{
+    const o=[];
+    for(let i=0;i<n;i++){
+      const dx=gauss()*rx*spread, dy=gauss()*ry*spread;
+      o.push([cx + dx*Math.cos(rot) - dy*Math.sin(rot),
+              cy + dx*Math.sin(rot) + dy*Math.cos(rot)]);
+    }
+    return o;
+  };
+
+  LOBES.forEach(([cx,cy,rx,ry,rot,nT])=>{
+    place(cx,cy,rx,ry,rot,nT,0.46).forEach(([x,y])=>
+      gT.appendChild(el('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:3.2,class:'x-tum'})));
+  });
+  // cell lines sit inside a subset of the lobes, tighter than the tumours
+  LOBES.forEach(([cx,cy,rx,ry,rot,,nC])=>{
+    if(!nC) return;
+    place(cx,cy,rx,ry,rot,nC,0.32).forEach(([x,y])=>
+      gC.appendChild(el('circle',{cx:x.toFixed(1),cy:y.toFixed(1),r:3.7,class:'x-cell'})));
+  });
+
+  svg.appendChild(el('rect',{x:390,y:118,width:132,height:64,rx:2,class:'x-box'}));
+  ['Interpretable','model'].forEach((s,i)=>{
+    const t=el('text',{x:456,y:144+i*16,'text-anchor':'middle',class:'x-lab x-lab--ink'});
+    t.textContent=s; svg.appendChild(t);
+  });
+  // train edge carries the cell-line colour, predict edge the tumour colour
+  svg.appendChild(el('path',{class:'x-arrow x-arrow--train',d:'M284 104 C 326 96, 352 118, 386 130'}));
+  svg.appendChild(el('path',{class:'x-arrow x-arrow--train',d:'M378 124 L 387 131 L 377 134'}));
+  svg.appendChild(el('path',{class:'x-arrow x-arrow--pred',d:'M386 172 C 350 182, 322 198, 280 190'}));
+  svg.appendChild(el('path',{class:'x-arrow x-arrow--pred',d:'M288 185 L 279 190 L 288 195'}));
+  const a1=el('text',{x:338,y:92,'text-anchor':'middle',class:'x-lab'});
+  a1.setAttribute('fill','var(--signal)');
+  a1.textContent='train — measured';
+  const a2=el('text',{x:334,y:216,'text-anchor':'middle',class:'x-lab'});
+  a2.setAttribute('fill','var(--x-tum-ink)');
+  a2.textContent='predict — inferred';
+  svg.appendChild(a1); svg.appendChild(a2);
+
+  // the legend is also the control
+  const KEY=[
+    ['tumours','Patient tumours','var(--noise)',gT,40,300],
+    ['cells','Cell line models','var(--signal)',gC,240,300],
+  ];
+  KEY.forEach(([id,label,fill,layer,x,y])=>{
+    const g=el('g',{class:'x-key',tabindex:'0',role:'button','aria-label':'Highlight '+label});
+    g.appendChild(el('rect',{x:x-12,y:y-15,width:190,height:23}));
+    g.appendChild(el('circle',{cx:x,cy:y-4,r:4.5,fill}));
+    const t=el('text',{x:x+13,y:y,class:'x-lab x-lab--ink'});
+    t.textContent=label; g.appendChild(t);
+    const on=()=>{
+      KEY.forEach(([,,,l])=>l.setAttribute('opacity', l===layer?1:0.13));
+      out.innerHTML = id==='cells'
+        ? '<b>Cell line models</b> &nbsp;·&nbsp; a subset of the space, dependency measurable'
+        : '<b>Patient tumours</b> &nbsp;·&nbsp; the full space, dependency inferred';
+    };
+    const off=()=>{
+      KEY.forEach(([,,,l])=>l.setAttribute('opacity',1));
+      out.textContent='hover a population';
+    };
+    g.addEventListener('pointerenter',on); g.addEventListener('pointerleave',off);
+    g.addEventListener('focus',on); g.addEventListener('blur',off);
+    svg.appendChild(g);
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════
+   Publications — channel tags mark which strand each belongs to.
+   ch: 'ai'  = cancer biology / machine learning
+       'rna' = RNA, isoforms, methods
+   role: 'first' | 'co-first' | 'corresponding' | 'co-corresponding'
+   ══════════════════════════════════════════════════════════════ */
+const PUBS = [
+  { y:2026, ch:['ai','rna'], role:['co-senior'],
+    t:"Isoform-specific single-cell perturb-seq reveals distinct functions of alternative promoters in drug response",
+    a:"King HE, O'Connell S, Kavanagh D, Mason S, McCool C, Fernandez-Chamorro J, Chaffer CL, Clark SJ, Vieira HGS, <b>Sterne-Weiler T</b>, Weatheritt RJ",
+    v:"Nucleic Acids Research", d:"10.1093/nar/gkag118" },
+
+  { y:2025, ch:['ai'], role:['senior'],
+    t:"Interpretable machine learning for discovery, evaluation and clinical translation of context-specific dependencies",
+    a:"Mondo J, Kabza M, Tremblay J, Nabet B, Hafner M, Yao X, <b>Sterne-Weiler T</b>",
+    v:"Clinical Cancer Research 31(13_Suppl):A011",
+    u:"https://aacrjournals.org/clincancerres/article/31/13_Supplement/A011/763246" },
+
+  { y:2025, ch:['ai'], role:['co-corresponding'],
+    t:"NRF2 supports non-small cell lung cancer growth independently of CBP/p300-enhanced glutathione synthesis",
+    a:"Conrad RJ, Mondo JA, Wang ML, Liu PS, Lai Z, Choudhury FK, Li Q, Wong WR, Lee J, Shanahan F, Lin E, Martin S, Rudolph J, Moffat JG, Sangaraju D, Sandoval W, <b>Sterne-Weiler T</b>, Foster SA",
+    v:"EMBO Reports", d:"10.1038/s44319-025-00463-z" },
+
+  { y:2024, ch:['rna','ai'], role:['corresponding'],
+    t:"Accurate long-read transcript discovery and quantification at single-cell, pseudo-bulk and bulk resolution with Isosceles",
+    a:"Kabza M, Ritter A, Byrne A, Sereti K, Le D, Stephenson W, <b>Sterne-Weiler T</b>",
+    v:"Nature Communications", d:"10.1038/s41467-024-51584-3" },
+
+  { y:2024, ch:['rna','ai'],
+    t:"Single-cell long-read targeted sequencing reveals transcriptional variation in ovarian cancer",
+    a:"Byrne A, Le D, Sereti K, Menon H, Vaidya S, Patel N, Lund J, Xavier-Magalhães A, Shi M, Liang Y, <b>Sterne-Weiler T</b>, Modrusan Z, Stephenson W",
+    v:"Nature Communications", d:"10.1038/s41467-024-51252-6" },
+
+  { y:2023, ch:['ai'],
+    t:"Targeting MCL-1 and BCL-2 with polatuzumab vedotin and venetoclax overcomes treatment resistance in R/R non-Hodgkin lymphoma",
+    a:"Lasater EA, Amin DN, Bannerji R, Mali RS, Barrett K, Rys RN, Oeh J, Lin E, <b>Sterne-Weiler T</b>, et al.",
+    v:"American Journal of Hematology", d:"10.1002/ajh.26809" },
+
+  { y:2021, ch:['rna'],
+    t:"Differential contribution of transcriptomic regulatory layers in the definition of neuronal identity",
+    a:"Ha KCH, <b>Sterne-Weiler T</b>, Morris Q, Weatheritt RJ, Blencowe BJ",
+    v:"Nature Communications", d:"10.1038/s41467-020-20483-8" },
+
+  { y:2018, ch:['rna'], role:['co-first','co-corresponding'],
+    t:"Efficient and accurate quantitative profiling of alternative splicing patterns of any complexity on a laptop",
+    a:"<b>Sterne-Weiler T</b>, Weatheritt RJ, Best AJ, Ha KCH, Blencowe BJ",
+    v:"Molecular Cell", d:"10.1016/j.molcel.2018.08.018" },
+
+  { y:2017, ch:['rna'],
+    t:"An atlas of alternative splicing profiles and functional associations reveals new regulatory programs and genes that simultaneously express multiple major isoforms",
+    a:"Tapial J, Ha KCH, <b>Sterne-Weiler T</b>, Gohr A, Braunschweig U, et al., Irimia M",
+    v:"Genome Research", d:"10.1101/gr.220962.117" },
+
+  { y:2017, ch:['rna'],
+    t:"Multilayered control of alternative splicing regulatory networks by transcription factors",
+    a:"Han H, Braunschweig U, Gonatopoulos-Pournatzis T, Weatheritt RJ, Hirsch CL, Ha KCH, Radovani E, Nabeel-Shah S, <b>Sterne-Weiler T</b>, et al., Blencowe BJ",
+    v:"Molecular Cell", d:"10.1016/j.molcel.2017.01.011" },
+
+  { y:2016, ch:['rna'],
+    t:"Misregulation of an activity-dependent splicing network as a common mechanism underlying autism spectrum disorders",
+    a:"Quesnel-Vallières M, Dargaei Z, Irimia M, Gonatopoulos-Pournatzis T, Ip JY, Wu M, <b>Sterne-Weiler T</b>, Nakagawa S, Woodin MA, Blencowe BJ, Cordes SP",
+    v:"Molecular Cell", d:"10.1016/j.molcel.2016.11.033" },
+
+  { y:2016, ch:['rna'],
+    t:"The ribosome-engaged landscape of alternative splicing",
+    a:"Weatheritt RJ, <b>Sterne-Weiler T</b>, Blencowe BJ",
+    v:"Nature Structural &amp; Molecular Biology", d:"10.1038/nsmb.3317" },
+
+  { y:2016, ch:['rna'], role:['co-first'],
+    t:"Global mapping of human RNA-RNA interactions",
+    a:"Sharma E, <b>Sterne-Weiler T</b>, O'Hanlon D, Blencowe BJ",
+    v:"Molecular Cell", d:"10.1016/j.molcel.2016.04.030", pdf:"pdf/Sterne-Weiler_MolCell_2016.pdf" },
+
+  { y:2016, ch:['rna','ai'],
+    t:"IGF2BP3 modulates the interaction of invasion-associated transcripts with RISC",
+    a:"Ennajdaoui H, Howard JM, <b>Sterne-Weiler T</b>, et al., Sanford JR",
+    v:"Cell Reports", d:"10.1016/j.celrep.2016.04.083" },
+
+  { y:2016, ch:['ai','rna'],
+    t:"RNA-binding protein IGF2BP3 targeting of oncogenic transcripts promotes hematopoietic progenitor proliferation",
+    a:"Palanichamy JK, Tran TM, Howard JM, Contreras JR, Fernando TR, <b>Sterne-Weiler T</b>, et al., Rao DS",
+    v:"Journal of Clinical Investigation", d:"10.1172/JCI80046" },
+
+  { y:2014, ch:['rna'],
+    t:"A global regulatory mechanism for activating an exon network required for neurogenesis",
+    a:"Raj B, Irimia M, Braunschweig U, <b>Sterne-Weiler T</b>, O'Hanlon D, et al., Blencowe BJ",
+    v:"Molecular Cell", d:"10.1016/j.molcel.2014.08.011" },
+
+  { y:2014, ch:['rna'], role:['first'],
+    t:"Exon identity crisis: disease-causing mutations that disrupt the splicing code",
+    a:"<b>Sterne-Weiler T</b>, Sanford JR",
+    v:"Genome Biology · Review", d:"10.1186/gb4150", pdf:"pdf/Sterne-Weiler_GenomeBiol_2014.pdf" },
+
+  { y:2014, ch:['ai','rna'],
+    t:"MutPred Splice: machine learning-based prediction of exonic variants that disrupt splicing",
+    a:"Mort M, <b>Sterne-Weiler T</b>, Li B, Ball EV, Cooper DN, Radivojac P, Sanford JR, Mooney SD",
+    v:"Genome Biology", d:"10.1186/gb-2014-15-1-r19", pdf:"pdf/Mort_GenomeBiol_2014.pdf" },
+
+  { y:2013, ch:['rna'], role:['co-first'],
+    t:"Frac-seq reveals isoform-specific recruitment to polyribosomes",
+    a:"<b>Sterne-Weiler T</b>, Martinez-Nunez RT, Howard JM, Cvitovik I, Katzman S, Tariq MA, Pourmand N, Sanford JR",
+    v:"Genome Research", d:"10.1101/gr.148585.112", pdf:"pdf/Sterne-Weiler_GenomeRes_2013.pdf" },
+
+  { y:2011, ch:['rna'], role:['first'],
+    t:"Loss of exon identity is a common mechanism of human inherited disease",
+    a:"<b>Sterne-Weiler T</b>, Howard J, Mort M, Cooper DN, Sanford JR",
+    v:"Genome Research", d:"10.1101/gr.118638.110", pdf:"pdf/Sterne-Weiler_GenomeRes_2011.pdf" },
+
+  { y:2007, ch:['rna'],
+    t:"Structural RNAs of known and unknown function identified in malaria parasites by comparative genomics and RNA analysis",
+    a:"Chakrabarti K, Pearson M, Grate L, <b>Sterne-Weiler T</b>, Deans J, Donohue JP, Ares M Jr",
+    v:"RNA", d:"10.1261/rna.751807" },
+];
+
+/* ── Render publications ─────────────────────────────────── */
+const list = document.getElementById('pubs');
+
+list.innerHTML = PUBS.map((p, i) => {
+  const dots = p.ch.map(c =>
+    `<span class="dot dot--${c === 'ai' ? 'signal' : 'found'}"></span>`).join('');
+  const roles = (p.role || []).map(r => `<span class="role">${r}</span>`).join('');
+  const kind = p.kind ? `<span class="kind">${p.kind}</span>` : '';
+  const pdf = p.pdf ? `<a href="${p.pdf}" style="color:var(--ink-2)">PDF</a>` : '';
+  return `<li class="pub" data-i="${i}">
+    <span class="pub__yr">${p.y}</span>
+    <span class="pub__ch">${dots}</span>
+    <div class="pub__body">
+      <a class="pub__t" href="${p.u || 'https://doi.org/' + p.d}">${p.t}</a>
+      <p class="pub__au">${p.a}</p>
+      <p class="pub__vn"><span>${p.v}</span>${kind}${roles}${pdf}</p>
+    </div>
+  </li>`;
+}).join('');
+
+document.getElementById('n-all').textContent = PUBS.length;
+
+/* ── Filter ──────────────────────────────────────────────── */
+const buttons = [...document.querySelectorAll('.filt')];
+const rows = [...list.children];
+
+function keep(p, f){
+  if (f === 'all')  return true;
+  if (f === 'lead') return !!p.role;
+  return p.ch.includes(f);
+}
+
+function applyFilter(f){
+  rows.forEach((row, i) => { row.hidden = !keep(PUBS[i], f); });
+}
+
+buttons.forEach(btn => btn.addEventListener('click', () => {
+  const f = btn.dataset.f;
+  buttons.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+  applyFilter(f);
+}));
+
+// open on first/senior/corresponding — the full list is one click away
+applyFilter(buttons.find(b => b.getAttribute('aria-pressed') === 'true').dataset.f);
 
 
-				<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-					<div class="content">
-	     <h2>Accurate long-read transcript discovery and quantification in single-cells</h2>
-	     <p>Accurate detection and quantification of mRNA isoforms from nanopore long-read sequencing remains challenged by technical noise, particularly in single cells. To address this, we introduce Isosceles, a computational toolkit that outperforms other methods in isoform detection sensitivity and quantification accuracy across single-cell, pseudo-bulk and bulk resolution levels, as demonstrated using synthetic and biologically-derived datasets. 
-						<ul class="actions vertical">
-							<li><a href="https://www.nature.com/articles/s41467-024-51584-3" target="new" class="button small"><em>Nature Communications</em> 2024</a></li>
-						</ul>
-					</div>
-					<div class="image">
-						<img src="images/Kabza_NComms_2024_Figure_1.jpg" alt="" />
-					</div>
-				</section>
-
-               <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in" id="Research">
-                  <div class="content">
-                     <h2>Short-read transcriptome profiling at the event-level (Whippet.jl)</h2>
-                     <p>Short-read RNA-seq datasets are expanding rapidly, while existing alternative splicing (AS) analysis tools are computationally inefficient and ineffective at handling complex splicing patterns.
-                        To address this, we've created a light-weight method for the rapid quantitative profiling of AS from raw RNA-seq reads at the event-level (Whippet.jl).
-                        In conjunction with investigations of RNA cis-regulatory elements, transcriptome profiling in multiple vertebrate species and tissues will to help identify conserved and clade-specific modes of isoform-specific gene regulation and dysregulation.</p>
-                     <ul class="actions vertical">
-                        <li><a href="https://doi.org/10.1016/j.molcel.2018.08.018" class="button small" target="new"><em>Molecular Cell</em> 2018</a> <a href="http://github.com/timbitz/Whippet.jl" class="button small" target="new">software <i class="fa fa-github"></i></a></li>
-                     </ul>
-                  </div>
-                  <div class="image">
-                     <img src="images/Whippet-Fig1.gif" alt="" />
-                  </div>
-                </section>
-
-				<!-- Two -->
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-                     <h2>Global mapping of human RNA:RNA interactions by LIGR-Seq</h2>
-                     <p>Local and long-range RNA structures are essential to the regulation of protein-coding mRNAs as well as short and long non-coding RNAs.
-                        Yet, identifying functional long-range and intermolecular RNA structures <em>in vivo</em> remains a major challenge in the field.
-                        To address this we have been developing high-throughput methods for the global-scale mapping of RNA duplexes, such as the ligation and sequencing of interacting RNA (LIGR-Seq).
-                         </p>
-							<ul class="actions vertical">
-								<li><a href="http://www.cell.com/molecular-cell/abstract/S1097-2765(16)30106-X" target="new" class="button small"><em>Molecular Cell</em> 2016</a></li>
-                        <li>Featured in research highlights: <a href="http://www.nature.com/nmeth/journal/v13/n7/full/nmeth.3916.html" target="new">Nature Methods</a>, <a href="http://www.cell.com/molecular-cell/fulltext/S1097-2765(16)30328-8" target="new">Molecular Cell</a>, and <a href="http://www.cell.com/trends/biochemical-sciences/fulltext/S0968-0004(16)30073-1" target="new">Trends in Biochemical Sciences</a>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/eLIGR-mini.gif" alt="" />
-						</div>
-					</section>
-
-				<!-- Three -->
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<h2>Large-scale Computational RNA Duplex Prediction (EvoDuplexes.jl)</h2>
-							<p>As an orthogonal approach to biochemical RNA duplex mapping, algorithms for the efficient large-scale folding of local and long-range RNA duplexes can help us to study RNA structure from theoretical and evolutionary directions. 
-                        Integrating multiple sources of computational (folding energetics, phylogenetic analysis) and experimental data (RNA structure probing, RNA duplex mapping) will facilitate prioritization and classification of functional RNA duplexes.</p>
-                     <ul class="actions vertical">
-                        <li><a href="http://github.com/timbitz/EvoDuplexes.jl" class="button small" target="new">alpha pre-release <i class="fa fa-github"></i></a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/SuffixArrays-Square.gif" alt="" />
-						</div>
-					</section>
-
-				<!-- Four -->
-
-                <section class="wrapper style5 align-center">
-                        <div class="items style6 large onscroll-fade-in">
-                            <section>
-                                <div class="content">
-                                    <span class="image fit"><img src="images/ashim-d-silva-D5YMUVLzGBw-unsplash.jpg" alt="" /></span>
-                                </div>
-                            </section>
-                        
-                        
-                            <!--<div class="inner">
-                               <div class="content">-->
-                                  <!-- <div class="inner"> -->
-                                   <!-- </div> -->
-                                   <!--</section>
-                                </div>-->
-                                <div class="inner" id="Publications">
-                                 <div class="content">
-                                  <header>
-                                        <h2>Selected Publications</h2>
-                                        <h5><b>*</b> indicates first authorship, <i class="fas fa-regular fa-envelope"></i> indicates corresponding authorship</h5>
-                                        <ul class="icons">
-                                            <li><a href="#Research" class="icon style1 fa-flask smooth-scroll-top"><span class="label"></span></a></li>
-                                            <li><a href="#Education" class="icon style1 fa-graduation-cap smooth-scroll-top"><span class="label"></span></a></li>
-                                            <li><a href="https://github.com/timbitz" target="new" class="icon style1 fa-github smooth-scroll-top"><span class="label"></span></a></li>
-                                            <li><a href="https://scholar.google.com/citations?user=-FDwZaQAAAAJ" target="new" class="icon style1 ai-google-scholar smooth-scroll-top"><span class="label"></span></a></li>
-                                            <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=sterne-weiler%5Bau%5D" target="new" class="icon style1 ai-pubmed smooth-scroll-top"><span class="label"></span></a></li>
-                                            <li><a href="mailto:tim.sterne.weiler@utoronto.ca" class="icon style1 fa-send"><span class="label"></span></a></li>
-                                         </ul>
-                                    </header>
-                                </div>
-                                <div class="items style1 medium onscroll-fade-in">
-                                    <section>
-                                    <span class="image fit"><img src="images/Kabza_NComms_2024_Figure_1_wide.gif" alt="" /></span>
-                                    Kabza M., Ritter A., Byrne A., Sereti K., Le D., Stephenson W., <p><b>Sterne-Weiler T.<sup><i class="fa-solid fa-envelope"></i></sup></b>. (2024) “Accurate long-read transcript discovery and quantification at single-cell, pseudo-bulk and bulk resolution with Isosceles”. <em>Nature Communications</em>. <b>15</b>, 15, 7316. <a href="https://www.nature.com/articles/s41467-024-51584-3" class="icon style1 fa-link" target="new"></a></p> 
-                                    </section>				
-                                    <section>
-                                    <span class="image fit"><img src="images/Sterne-Weiler_BioRxiv_2017.gif" alt="" /></span>
-                                    <p><b>Sterne-Weiler T.<sup>* <i class="fa-solid fa-envelope"></i></sup></b>, Weatheritt RJ.<b><sup>*</sup></b>, Ha K., Blencowe BJ <sup><i class="fa-regular fa-envelope"></i></sup>. (2018) “Efficient and accurate quantitative profiling of alternative splicing patterns of any complexity on a laptop”. <em>Molecular Cell</em>. 72(1), 187–200. <a href="https://doi.org/10.1016/j.molcel.2018.08.018" class="icon style1 fa-link" target="new"></a></p> 
-                                    </section>
-                                    <section>
-                                        <span class="image fit"><img src="images/Sterne-Weiler_MolCell_2016.gif" alt="" /></span>
-                                        <p>Sharma, E.<b><sup>*</sup></b>, <b>Sterne-Weiler, T.<sup>*</sup></b>, O’Hanlon D., Blencowe, BJ. (2016) “Global mapping of human RNA:RNA interactions.” <em>Molecular Cell</em>. 62(4):618-26. <a href="http://www.cell.com/molecular-cell/abstract/S1097-2765(16)30106-X" class="icon style1 fa-link" target="new"></a> <a href="pdf/Sterne-Weiler_MolCell_2016.pdf" class="icon style1 fa-paperclip" target="new"></a></p>
-                                    </section>
-                                   <section>
-                                       <span class="image fit"><img src="images/Weatheritt_NSMB.gif" alt="" /></span>
-                                       <p>Weatheritt RJ., <b>Sterne-Weiler T.</b>, Blencowe BJ. (2016) “The ribosome-engaged landscape of alternative splicing.” <em>Nature Structural and Molecular Biology</em>. doi: 10.1038/nsmb.3317. <a href="http://www.nature.com/nsmb/journal/vaop/ncurrent/full/nsmb.3317.html" class="icon style1 fa-link" target="new"></a></p>
-                                    </section>
-                                    <section>
-                                        <span class="image fit"><img src="images/Sterne-Weiler_GenomeBiology_2014.gif" alt="" /></span>
-                                        <b>Sterne-Weiler T</b>, Sanford JR. (2014) "Exon identity crisis: disease-causing mutations that disrupt the splicing code." <em>Genome Biology</em> 15(1):201. <a href="pdf/Sterne-Weiler_GenomeBiol_2014.pdf" class="icon style1 fa-paperclip" target="new"></a> 
-                                    </section>
-                                    <section>
-                                        <span class="image fit"><img src="images/Mort_GenomeBiology_2014.gif" alt="" /></span>
-                                        Mort M, <b>Sterne-Weiler T</b>, Li B, Ball EV, Cooper DN, Radivojac P, Sanford JR, Mooney SD. (2014) "MutPred Splice: machine learning-based prediction of exonic variants that disrupt splicing." <em>Genome Biology</em> 15(1):R19. <a href="pdf/Mort_GenomeBiol_2014.pdf" class="icon style1 fa-paperclip" target="new"></a>
-                                    </section>
-                                    <section>
-                                        <span class="image fit"><img src="images/Sterne-Weiler_GenomeRes_2013.gif" alt="" /></span>
-                                        <b>Sterne-Weiler T<sup>*</sup></b>, Martinez-Nunez RT<sup><b>*</b></sup>, Howard JM, Cvitovik I, Katzman S, Tariq MA, Pourmand N, Sanford JR. (2013) "Frac-seq reveals isoform-specific recruitment to polyribosomes." <em>Genome Research</em> 23(10):1615-23. <a href="pdf/Sterne-Weiler_GenomeRes_2013.pdf" class="icon style1 fa-paperclip" target="new"></a>
-                                    </section>
-                                    <section>
-                                        <span class="image fit"><img src="images/Sterne-Weiler_GenomeRes_2011.gif" alt="" /></span>
-                                        <b>Sterne-Weiler T</b>, Howard J, Mort M, Cooper DN, Sanford JR. (2011) "Loss of exon identity is a common mechanism of human inherited disease." <em>Genome Research</em> 21(10):1563-71. <a href="pdf/Sterne-Weiler_GenomeRes_2011.pdf" class="icon style1 fa-paperclip" target="new"></a>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-					</section>
-
-               <section class="wrapper style1 align-center" id="Education">
-               <div class="inner">
-                  <div class="index align-left">
-                                        <section>
-                                        <header>
-                                        <span class="image fit"><img src="images/Tim_BW_Round.jpg" alt="" /></span>
-                                        </header>
-                                        <div class="content">
-                                        <h2>Education</h2>
-                                        <ul>
-                                        <li>Postdoctoral Fellow, University of Toronto (Blencowe Lab)
-                                        <li>Ph.D. Bioinformatics, UC Santa Cruz (2013, Sanford Lab)
-                                        <li>M.S.  Bioinformatics, UC Santa Cruz (2011, Sanford lab)
-                                        <li>B.S.  Bioinformatics w/ Honors, Baskin School of Engineering, UC Santa Cruz (2007)
-                                        </ul>
-                                        
-                                        <hr />
-
-                                        <h2>Awards</h2>
-                                        <ul>
-                                        <li>2015 - Canadian Institute of Health Research (CIHR) Postdoctoral Fellowship
-                                        <li>2014 - Charles H. Best Foundation Postdoctoral Fellowship
-                                        </ul>
-                                        <hr />
-                                        </div>
-                                        </section>
-                                     </div>   
-                                    </div>
-                                   <!-- </div> -->
-                                
-            </section>
-
-				<!-- Footer -->
-					<footer class="wrapper style1 align-center">
-						<div class="inner">
-                            <ul class="icons">
-                                <li><a href="#Research" class="icon style2 fa-flask smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="#Publications" class="icon style2 fa-file-pdf-o smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="#Education" class="icon style2 fa-graduation-cap smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="https://github.com/timbitz" target="new" class="icon style2 fa-github smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="https://scholar.google.com/citations?user=-FDwZaQAAAAJ" target="new" class="icon style2 ai-google-scholar smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=sterne-weiler%5Bau%5D" target="new" class="icon style2 ai-pubmed smooth-scroll-top"><span class="label"></span></a></li>
-                                <li><a href="mailto:tim.sterne.weiler@utoronto.ca" class="icon style2 fa-send"><span class="label"></span></a></li>
-                            </ul>
-                            <p>&copy; Tim Sterne-Weiler. CCBR Image: <a href="http://tdccbr.med.utoronto.ca/history" target="new">tdccbr.med.utoronto.ca</a>. Skyline Image: <a href="http://collateral-photography.com" target="new">Spencer Robertson</a>.  Design: <a href="https://html5up.net" target="new">HTML5 UP</a>.</p>
-						</div>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</script>
+</body>
 </html>
